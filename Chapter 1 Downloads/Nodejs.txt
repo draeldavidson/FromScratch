@@ -1,0 +1,59 @@
+*Node.js...
+    to download
+        (https://nodejs.org/en/download/)
+        check to see if node is installed:
+            - Check with `node -v`
+            - Check with `npm -v`
+
+
+    Node. js is primarily used for non-blocking, event-driven servers, due to its 
+    single-threaded nature. It's used for traditional web sites and back-end API services, 
+    but was designed with real-time, push-based architectures in mind. 
+    The node_modules folder contains every installed dependency for your project.
+
+
+
+    *node commands...
+        npm i -g nodemon <--Install the nodemon module globally to system path
+        npm i --save-dev nodemon <--You can also install nodemon as a development-dependency
+        nodemon app.js  <--Run the application using nodemon followed by application file name.
+
+        node --version
+        Ctrl + C -To terminate the command
+        Ctrl + C {twice} / Ctrl + D -To exit the command prompt
+
+        npm or the Node Package Manager, is one of the most used tools for any 
+        Node.js developer.
+        # install
+        npm i <package>
+
+        # uninstall
+        npm un <package>
+
+        # update
+        npm up <package>
+
+        npm -g uninstall <name> -Uninstall global package
+        npm outdated -g --depth=0 -To see which packages need updating
+        npm update -g <package> <package> <package> -To update global packages
+
+    *Package.json
+    A package. json is a JSON file that exists at the root of a Javascript/Node project. 
+    It holds metadata relevant to the project and it is used for managing the project's 
+    dependencies, scripts, version and a whole lot more.
+
+        How to install
+            1.On the command line, navigate to the root directory of your package.
+            2.npm init --y <--creates the .json in the folder
+
+
+    package-lock.json is automatically generated for any operations where npm 
+        modifies either the node_modules tree, or package.json. It describes the 
+        exact tree that was generated, such that subsequent installs are able to 
+        generate identical trees, regardless of intermediate dependency updates.
+
+
+    The node_modules folder is used to save all downloaded packages from NPM in 
+    your computer for the JavaScript project that you have. Developers are 
+    always recommended to do a fresh install with npm install each time they 
+    downloaded a JavaScript project into their computer.

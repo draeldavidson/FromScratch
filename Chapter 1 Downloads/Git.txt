@@ -1,0 +1,50 @@
+*Git is a version control system... 
+    designed to handle everything from small to very large projects 
+    with speed and efficiency.  One person can create a remote 
+    repository and share it with a group of developers. 
+    Then each developer can copy from the remote 
+    repository to their local machine. They can then make changes and 
+    share with other developers by saving to the remote repository. 
+    Git helps coordinate work among programmers who were operating source codes 
+    during software development.
+
+        To download git
+            - had to download homebrew By opening up my terminal on my computer 
+            and insert in the code. Then to download git 
+            I had to enter brew install git. 
+            (https://git-scm.com/downloads)
+
+            check to see if git is installed:
+                git --version
+
+    *Git commands...
+        git init    <--Create a new local repository
+        git clone "/path/to/repository" <-- Check out a repository
+        cd firstgitrepo <--creates the bash under this directory.
+        ls              <--lists the files
+        echo hi its me >hello.txt <--makes a new text file titled “hello”
+        git add     <--Add one or more files to staging
+        git commit -m "update hello file” <--saves the new changes.
+        git commit -a <--Commit any files you've added with git add, 
+                    and also commit any files you've changed since then
+        git push    <--pushes the changes to the remote repository
+        git status  <-- List the files you've changed and those you still need to add or commit
+        git checkout -b <branchname>    <--Create a new branch and switch to it:
+        git checkout <branchname>   <--Switch from one branch to another:
+        git push origin :<branchname>   <--Delete a branch on your remote repository:
+        git push --all origin   <--Push all branches to your remote repository:
+        git pull    <--Fetch and merge changes on the remote server to your working directory:
+        git merge <branchname>  <--To merge a different branch into your active branch
+
+
+    How To Merge Master into Branch
+
+        git checkout main- switches to the main branch
+        git pull- pulls any main branch changes
+        git checkout branchname- switches to the branch
+        git merge main- merges main changes to your branch
+        git push- pushes branch changes
+
+        * to merge a Branch into master 
+            git checkout main
+            git merge branchname
