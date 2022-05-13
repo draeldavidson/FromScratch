@@ -1,0 +1,2 @@
+
+an interactive <canvas> page

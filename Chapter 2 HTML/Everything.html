@@ -8,29 +8,66 @@ initial-scale  part sets the initial zoom level when the page is first loaded by
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <!--Referesh document every 15 seconds -->
 <meta http-equiv="refresh" content="15">
+<!-- base takes over all links even images! Define a base URL for all the links with in a web page-->
+<!-- <base href="http://www.drizzleonrice.com" target="_blank" rel="noopener noreferrer"/> --> 
+<link/>	<!-- Used to load an external stylesheets into HTML document.	 -->
+<!-- Used to add CSS style to an HTML document.	 -->
+<style type="text/css"> 
+  h2 {
+    font-size: 50px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-weight: normal;
+    color: #0071a1;
+  }
+  p {
+    font-size: 25px;
+    color: rgb(170, 0, 255);
+  }
+</style>
 </head>
 <body> <!-- The visible part of the HTML document is between -->
+  
+  <header> <!-- Defines as a container that hold introductory content or navigation links.	NEW-->
+    <samp>
+      Hello World!
+    </samp><!-- Represents text that should be interpreted as sample output from a computer program.	--> 
+    In <i>HTML:5</i> <!-- Defines a italic format text	 --> these tags were <strong>removed</strong> <!-- Represents strong emphasis greater important text.	 --><br/>
+    <mark><u>acronym, applet, basefont, bb, big, center, datagrid, dir, 
+    eventsource, font, frame, frameset, hgroup, isindex, keygen,
+    noframes, strike, tt!
+  </u><!-- Represents underlined text.	 -->
+  </mark><!-- Used to highlighted (marked) specific text.	NEW-->
+
+  </header>
+  <hr />	<!-- Represent a thematic break between paragraph-level tags. It is typically draw horizontal line.	 -->
+  <br /> <!-- Specific a single line break-->
 
 <!--...Describe a comment text in the source code-->
 <a href="http://www.drizzleonrice.com" target="_blank" rel="noopener noreferrer"> (Hyperlink) To prevent pages from abusing window.opener, use rel=noopener.</a>
-<br /> <!-- Specific a single line break-->
+<br />
 <br />
 
-<a href="Anchor">Anchor</a><br />
+<nav> <!-- Used to defines group of navigation links.	NEW-->
+<a href="#Anchor">Anchor</a><br />
+</nav>
   <br />
 
   This tag describes an <abbr title="abbreviation acronym">abbr</abbr>. When mouse over on the text, full name will be display. Replaced the acronym tag.
   <br/>
   <br/>
+  <aside style="float:right;">
+    <img src="./Images/Sydney.jpg" height="100" width="150" />
+  </aside>
+
   <address>
       This is an address tag<br/>
     P. Sherman<br />
     42 Wallaby Way<br />
     Sydney, Australia<br />
   </address>
+  
   <br/>
   <br/>
-In HTML:5 these tags were removed acronym, applet,
 <br/>
 
 <article>
@@ -41,33 +78,245 @@ In HTML:5 these tags were removed acronym, applet,
  
 </article>
 
-<aside style="float:right;">
-    <img src="./Images/Sydney.jpg" height="100" width="150" />
-  </aside>
+
+  <audio controls="controls"> <!-- Specific audio content	NEW-->
+    Your browser does not support the &lt;audio&gt; tag. 
+    <source src="./Images/Audio Tag.mp3" />
+    <track label="English"/> <!-- Represents text tracks for both the <audio> and <video> tags.	NEW-->
+  </audio>
+  <br/>
+Are you <a href="lost.php">lost?</a>
+
+<br/>
+<bdo dir="ltr">Wow! This effect is bdo tag right to left display.</bdo> <!-- Specific direction of text display	 -->
+<br />
+<bdo dir="rtl">Wow! This effect is bdo tag left to right display.</bdo>
+<br/>
+<blockquote>Blockquote specifies a long quotation. This is a long quotation example.This is a long quotation <br />
+  example.This is long quotation example.This is a long quotation example. <br />
+  This is a long quotation example. </blockquote> <!-- Specifies a long quotation-->
+  <br/>
+  <button>Specifies a press/push button</button>
+<br/>
+<br/>
+
+<canvas id="CanvasEx"> </canvas> <!-- Specifies the display graphics on HTML web documment	NEW-->
+
+<script type="text/javascript">
+  var canvas=document.getElementById('CanvasEx');
+  var ctx=canvas.getContext('2d');
+  ctx.fillStyle='#FFcc00';
+  ctx.fillRect(0,5,80,110);
+
+  ctx.fillStyle='#FF9900';
+  ctx.fillRect(25,0,120,50);
+
+  ctx.fillStyle='#FF00cc';
+  ctx.fillRect(100,35,120,60);
+</script> <!-- Defines client-side JavaScript.	 -->
+<noscript>Your browser does not load/support JavaScript.</noscript>
 
 
+<table  width="175" border="--"> <!-- Used to defines a table in an HTML document.	 -->
+  <thead>
+  <caption align="center">a table caption</caption>
+</thead>
+  <tfoot>
+    <tr>
+      <td colspan="2"> records.</td>
+    </tr>
+  </tfoot>
+  <colgroup span="2"> <!-- Defines a group of one or more columns inside table	 -->
+    <col width="80"/> <!-- Specifies a each column within a <colgroup> element in table-->
+    <col width="120"/>
+  </colgroup>
 
+  <tr> <!-- Defines a row of cells in a table.	 -->
+    <th>Day</th> <!-- Used for creates header of a group of cell in HTML table.	 -->
+    <th>Type</th>
+  </tr>
+  <tr>
+    <td>Monday</td> <!-- Used for creates standard data cell in HTML table.	 -->
+    <td>meh day</td>
+  </tr>
+  <tr>
+    <td>Thursday</td>
+    <td>good day</td>
+  </tr>
+  <tbody> <!-- Used for grouping table rows.	 -->
+    <tr>
+      <td>Opal Kole</td>
+      <td>63 street Ct.</td>
+    </tr>
+    <tr>
+      <td>Jack Evans</td>
+      <td>1274 West Street</td>
+    </tr>
+    <tr>
+      <td>Sariya Vargas</td>
+      <td>10 Texo Court.</td>
+    </tr>
+  </tbody>
+</table>  
+<br/>
+<cite title="cite & abbr"> C&A </cite> work the same way.
+<br/>
+<code> <br />
+  console.log("Specifies computer code text"); <br />
+</code>
+<br/>
+<menu>
+<command type="checklist" label="Check List">Command Tag</command> <!-- Define a command button, invoke as per user action	NEW-->
+<br/>
+Menu tag is Used to display a unordered list of items/menu of commands.
+</menu>
+<br/>
+<label>This is a lable tag </label> <!-- Used to caption a text label with a form <input> element.	 -->
+<input list="options" placeholder="InputTag"/> <!-- Define a get information in selected input	-->
+<datalist id="options"> <!-- Define a list of pre-defined options surrounding <input> tag	NEW-->
+  <option value="Option1"/> <!-- Represents option items within a <select>, <optgroup> or <datalist> element.	 -->
+  <option value="Option2"/>
+  <option value="Option3"/>
+</datalist>
+<br/>
+<dl> <!-- Define a definition list	 -->
+  <dt>Definition Team</dt> <!-- Define a definition team	 -->
+  <dd>definition description in a definition list</dd>  <!-- Defines a definition description in a definition list	 -->
 
+  <dt>Definition Team</dt>
+  <dd>definition description in a definition list</dd> 
+</dl>
+<p>Now a days the Internet is <del>a good</del> <!-- Specific text deleted in web document	 -->
+   <ins>very good</ins> <!-- Used to indicate text that is inserted into a page and indicates changes to a document.	 -->
+    <s>option</s> <!-- Text display in strikethrough style.	 -->
+    for learning.</p>
+    <details>
+      <summary>This is a summary tag inside a details tag</summary> <!--<summary> tag defines a visible heading for the <details> element. -->
+      <p>additional details hide or show as per user action</p>
+    </details>
+<br/>
+<dfn>Definition term:</dfn> Description a terms of Definition.
 
+<dialog open="open">
+  <p>dialog tag represents a dialog box or popup window</p>
+</dialog>
+<p>This text are <em>Emphasize format.</em> <!-- Define a text is emphasize format-->	  </p>
+<div> <!-- Define a division part	 -->
+  <figure> <!-- Represents self-contained content corresponding with a <figcaption> element	NEW-->
+<embed src="./Images/Sydney.jpg"/>
+<figcaption>This is a figure caption a caption text corresponding with a figure element</figcaption>
+</figure>
+</div>
 
+<fieldset> <!-- Defines a grouping of related form elements	 -->
+  <legend>Legend Tag</legend> <!-- Used to add a caption (title) to a group of related form elements that are grouped together into the <fieldset> tag.	 -->
 
+  <input type="radio" name="option" id="This" value="This" checked="checked"/>
+  <label for="male">This</label>
 
+  <input type="radio" name="option" id="That" value="That"/>
+  <label for="female">That</label>
 
+</fieldset>
+<form action="form_tag_get.php" method="post"> <!-- Defines a form section that having interactive input controls to submit form information to a server.	 -->
+  <br/>this is a form tag
+  <p>Username: <input type="text" name="username"/></p>
+  <p>Password: <input type="password" name="password"/></p>
+  <input type="submit" value="Send" />
+</form>
+<section> <!-- Used to divide a document into number of different generic section.	NEW-->
+<h1>Heading h1<h1>
+  <h2>Heading h2<h2>
+  <h3>Heading h3<h3>
+  <h4>Heading h4<h4>
+  <h5>Heading h5<h5>
+  <h6>Heading h6<h6>
+  </section>
 
+ <!-- <iframe src="https://youtu.be/5qap5aO4i9A" 
+  <video>	 <Used to embed video content.	NEW
+  width="560" height="315" frameborder="0"
+  allowfullscreen="allowfullscreen">
+<param name="autoplay" value="true"/> Provides parameters for embedded object element.	 
+</iframe>--> <!-- Defines a inline frame that embedded external content into current web document.	 -->
 
+  <object data="./Images/emoji.png" width="100" height="100" alt="natural" ></object> <!-- Used to embedded objects such as images, audio, videos, Java applets, and Flash animations.	 -->
+  <br/>
+  <p>This example is represents <kbd>Keyboard input</kbd> text.</p>
 
+  <ol>
+    <li>Order list</li>
+    <li>Order list</li>
+  </ol> 
 
+  <ul>
+    <li>Unorder list</li>
+    <li>Unorder list</li>
+  </ul> 
 
+  <img src="./Images/img_nat.png" width="207" height="139" alt="Natural" usemap ="#define">
+  <map name="define" ><!-- Defines an clickable image map.	 -->
+    <area shape ="rect" coords ="0,0,115,90" href ="http://en.wikipedia.org/wiki/Sky" alt="croud"/>
+    <area shape ="poly" coords ="10,10,162,82,175,100,181,102,175,148,122,146" href ="http://en.wikipedia.org/wiki/Water" alt="water"/>
+  </map>
+  <p>Your profile completed: <meter value="80" min="0" max="100">80%</meter></p>
 
+  <p>Free Space: <meter value="52" min="0" max="100">52%</meter></p> <!-- Used to measure data within a given range.	NEW-->
 
+  <select><!-- Used to create a drop-down list.	 -->
+    <optgroup label="Asia">  <!-- Used to create a grouping of options, the related options are grouped under specific headings.	 -->
+      <option value="india">India</option>
+      <option value="singapore">Singapore</option>
+    </optgroup>  
+    <optgroup label="Europe"> 
+      <option value="Germany">Germany</option>
+      <option value="France">France</option>
+    </optgroup> 
+  </select>
+  
+  <form oninput="result.value=parseInt(a.value)+parseInt(b.value);">
+    Value 1. <input type="number" name="a" value=""/><br />
+    + <br />
+    Value 2. <input type="number" name="b" value=""/> <br />
+    = <br />
+    Output is <output name="result">90</output> <!-- Used for representing the result of a calculation.	NEW-->
+  </form>
 
+  <pre>
+    These texts are preformatted text
+       This is the second line of preformatted text
+   And this is the third line of preformatted text.   
+  </pre>
 
+  Please wait it's loading... 
+  <progress> <!-- Represents the progress of a task.	NEW-->
+      <span id="progress">32%</span><!-- Used to grouping and applying styles to inline elements.	 -->
+  </progress>
 
+  <br /><br />
 
+  Uploading status... 
+  <progress value="30" max="100">30 %</progress>
 
+  <p>Guess what? <q>This is a q tag</q></p>
 
+  <p>
+    <ruby>草泥馬<rp>(</rp><rt>Cǎo Ní Mǎ</rt> <!-- Specifies the ruby text of ruby annotation.	NEW--> <rp>)
 
+    </rp><!-- Used to provide parentheses around fall-back content to the browser that does not support the ruby annotations.	NEW-->
+    </ruby><!-- Used to represents a ruby annotation.	NEW-->
+  </p>
+  <p>This example is a represent <small>small text.</small>.</p>
+<source/><!-- Used to specifies multiple media resources.	NEW-->
 
+  <p>h<sub>2</sub>+so<sub>4</sub>=h<sub>2</sub>so<sub>4</sub></p> <!-- Represents inline subscript text.	 -->
+  <p>3<sup>2</sup>+4<sup>2</sup>=5<sup>2</sup></p> <!-- Represents inline superscript text.	 -->
+  <textarea name="textarea" rows="5" cols="40">Describe yourself...</textarea> <!-- Create multi-line text input.	 -->
+
+  <p>Our shop opens at <time>09:00</time>.</p>
+  <p>This example represent <small>var</small> text.</p>
+  <p><var>x</var> = 12</p> <!-- Represents a variable in a computer program or mathematical equation.	 -->
+  <p>wbr tag example: How<wbr />Much<wbr />You<wbr />Love<wbr />Me.</p> <!-- Defines a word break opportunity in a long string of text.	NEW-->
 
 
 <br/>
@@ -80,8 +329,9 @@ In HTML:5 these tags were removed acronym, applet,
   <p>TITLE attribute use for provide a description of that location file, which are linked to current document.</p>
 
 
-
-
+  <footer>
+    <p>&copy; Copyright 2022. Most-ish Rights Reserved.</p>
+  </footer>
 </body>
 </html>
 
