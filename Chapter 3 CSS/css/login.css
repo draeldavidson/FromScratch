@@ -1,5 +1,14 @@
 /* CSS selectors are used to "find" (or select) the HTML elements you want to style. */
 
+body{
+  background: url('../Images/gradient.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+
 
 /* Bordered form */
 form {
@@ -56,6 +65,16 @@ header {
   color: #f1f1f1;
   overflow: hidden;
   
+}
+
+footer {
+  padding: 10px 0px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  background-color: #e646b3;
+  color: white;
+  text-align: center;
 }
 .space{
   padding: 20px;
@@ -116,33 +135,96 @@ samp{
 .dropdown:hover .dropbtn {background-color: #fff0fa}
 
 
+/* unvisited link */
+a:link {
+  color: #e646b3;
+}
+
+/* visited link */
+a:visited {
+  color: rgb(93, 0, 186);
+}
+
+/* mouse over link */
+a:hover {
+  color: rgb(0, 144, 239);
+}
+
+/* selected link */
+a:active {
+  color: rgb(255, 204, 0);
+}
+
+
 /* Section */
 
 section {
-  border: 3px solid #73AD21;
+  border: 3px solid hsl(212, 99%, 50%);
+  background-color: rgb(255, 255, 255);
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-bottom: 2%;
+  word-wrap: break-word;
 }
 
+/* Article */
+
 article {
-position: relative;  
-margin: 0;
-  padding: 5px;
-  background-color: lightgray;
+  position: relative;  
+  margin: 0;
+  padding: 10px 16px;
+  padding-top: 3%;
+  padding-bottom: 3%;
 }
+
+/* Aside */
+
 aside{
   width: 30%;
-  padding-left: 15px;
+  padding-left: 1%;
+  padding-right: 1%;
   margin-left: 3%;
   float: right;
   font-style: italic;
-  border: 3px solid #73AD21;
+  border: 3px solid hsl(212, 99%, 50%);
+  background-color: rgb(255, 255, 255);
+  padding-top: 3%;
+  padding-bottom: 3%;
+
 }
 
-footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #e646b3;
-  color: white;
-  text-align: center;
+audio{
+  background-color: #006773;
+  -webkit-transition:all 0.5s linear;
+  -moz-transition:all 0.5s linear;
+  -o-transition:all 0.5s linear;
+  transition:all 0.5s linear;
+  -moz-box-shadow: 2px 2px 4px 0px #006773;
+  -webkit-box-shadow:  2px 2px 4px 0px #006773;
+  box-shadow: 2px 2px 4px 0px #006773;
+  -moz-border-radius:7px 7px 7px 7px ;
+  -webkit-border-radius:7px 7px 7px 7px ;
+  border-radius:7px 7px 7px 7px ;
+  }
+
+  audio:hover, audio:focus, audio:active
+{
+-webkit-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+-moz-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+-webkit-transform: scale(1.05);
+-moz-transform: scale(1.05);
+transform: scale(1.05);
 }
+
+table {
+  width: 100%;
+}
+
+td:nth-child(1) { background: hsl(160, 60%, 50%); }
+td:nth-child(2) { background: hsl(170, 70%, 50%); }
+td:nth-child(3) { background: hsl(180, 80%, 50%); }
+td:nth-child(4) { background: hsl(190, 90%, 50%); }
+td:nth-child(5) { background: hsl(200, 99%, 50%); }
+td:nth-child(6) { background: hsl(212, 99%, 50%); }
+
