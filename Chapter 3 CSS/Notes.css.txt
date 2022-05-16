@@ -1,0 +1,93 @@
+*CSS
+    CSS stands for Cascading Style Sheets. CSS is a style sheet language
+    used for describing the presentation of a document written in a markup
+    language such as HTML. Three ways of inserting css is 
+
+    1. External, you can change the look of an entire website by changing just one file!
+    2. Internal may be used if one single HTML page has a unique style by using the 
+    <style> element, inside the head section.
+    3. Inline may be used to apply a unique style for a single element they are defined
+    within the "style" attribute of the relevant element
+
+    CSS selectors  select the HTML element(s) you want to style. The element selector 
+    selects HTML elements based on the element name. For example p{....} will apply to 
+    all <p> elements. The box model is a box that wraps around every html element. 
+    The box consists of four small boxes: margins, borders, padding, and the actual content. 
+    think of CSS specificity as a score/rank that determines which style declarations are 
+    ultimately applied to an element. If there are two or more CSS rules that point to the 
+    same element, the selector with the highest specificity value will "win", and its style 
+    declaration will be applied to that HTML element. Responsive web design (RWD) is a 
+    web development approach that creates dynamic changes to the appearance of a website, 
+    depending on the screen size and orientation of the device being used to view it. like 
+    a button enlarging when the cursor hovers over it. 
+
+    CSS Grid is a two-dimensional grid system used to work on the layout of UI 
+    elements and segments of a webpage also allows for more standardized code that works 
+    across browsers. align components into rows and columns. With Flexbox, you can lay out 
+    and align elements in a container even if you don't know the size of those elements or 
+    if the size might change. That's because a flex container is flexible: it expands the 
+    flex elements to fill space when it's available and shrinks them to prevent overflow when 
+    it's not. Bootstrap offers a twelve-column system with dozens of predefined classes. 
+    That means you can use its mobile-first flexbox grid to build unique and complex layouts 
+    without having to build them from scratch
+
+*The Basics*
+    - p { font-size: 120%; color: dimgray; } ←paragraph slightly
+     larger than usual. And with dark grey text, instead of black.
+   
+    - p.smallcaps { font-variant: small-caps; } ←destination 
+    paragraphs that should be in small caps
+    
+    - <p class="smallcaps">Your paragraph here.</p> ←a paragraph 
+    that's entirely in small caps
+    
+    - text-transform: uppercase; text-transform: lowercase; text-transform:
+     capitalize; ← change a set of text to a specific case
+    
+    - a:link { color: gray; } a:visited { color: green; } 
+    a:hover { color: purple; } a:active { color: teal; } ←There are four different 
+    colors a link can be assigned: its standard color, its visited color, 
+    its hover color, and its active color (which it displays while you're clicking on it).
+   
+    - a { text-decoration: none; } ←remove underlines on links
+    
+    - a:hover { text-decoration: underline; } ←Want to underline it when the user hovers over it
+    
+    - a:link, a:visited, a:hover, a:active 
+    { background-color: green; color: white; padding: 10px 25px; text-align: center; 
+    text-decoration: none; display: inline-block; } ←A link button
+    
+    - p.important { border-style: solid; border-width: 5px; border-color: purple; } ←add a border
+    
+    - <p class="important">Your important paragraph here.</p> ←a solid purple border, five pixels wide, 
+    around any important-class paragraph.
+   
+    - border-width: 5px 8px 3px 9px; ←border styles you can apply; instead of "solid," try "dotted" or 
+    "double." Meanwhile, the width can be "thin," "medium," or "thick." CSS code can even define the 
+    thickness of each border individually, like this
+   
+    - .center { display: block; margin: auto; } ←Center align
+   
+    - img { margin: auto; } ← center all images
+   
+    - .centertext { text-align: center; } ← center text
+   
+    - <p class="centertext">This text will be centered.</p> center text in a paragraph
+   
+    - img { padding-top: 40px; padding-right: 25px; padding-bottom: 40px; padding-left: 25px; } ←every 
+    image to have 20 pixels of padding on the left and right sides, and 40 pixels on the top and bottom.
+  
+    - img { padding: 40px 25px 40px 25px; } ← same but shorter
+   
+    - img { padding: 40px 25px } ← This sets the top, right, bottom, and left paddings to the right number. 
+    Thanks to only two values being used (40 and 25) you can make it even shorter:
+  
+    - tr:hover { background-color: #ddd; } highlight table rows
+  
+    - img { opacity: 0.5; filter: alpha(opacity=50); } ←display images at less than full opacity, 
+    so they appear slightly "whited out". When you mouse over the images, they're brought to full opacity
+  
+    - img:hover { opacity: 1.0; filter: alpha(opacity=100); } ←The "filter" attribute does the same 
+    thing as "opacity," but Internet Explorer 8 and earlier don't recognize the opacity measurement. 
+    For older browsers, it's a good idea to include it.
+
