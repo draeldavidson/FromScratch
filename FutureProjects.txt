@@ -1,2 +1,7 @@
 
 an interactive <canvas> page
+
+Create a function that reads a boolean input and logs an output based on true or false. started in ControlledFlow.js
+
+
+
