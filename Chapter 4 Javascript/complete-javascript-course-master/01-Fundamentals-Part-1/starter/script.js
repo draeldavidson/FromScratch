@@ -40,22 +40,80 @@
 // job = "developer";
 
 
-const firstName = "Drael";
-const job = "Developer";
-const birthYear= 1992;
-const year = 2022;
+// const firstName = "Drael";
+// const job = "Developer";
+// const birthYear= 1992;
+// const year = 2022;
 
-const drael = "I'm " + firstName + ', a ' + (year - birthYear) + ' year old ' + job + '!';
+// const drael = "I'm " + firstName + ', a ' + (year - birthYear) + ' year old ' + job + '!';
 
-console.log(drael);
+// console.log(drael);
 
-const draelNew = `I'm ${firstName}, a ${year - birthYear} year old 
-${job}!`
+// const draelNew = `I'm ${firstName}, a ${year - birthYear} year old 
+// ${job}!`
 
 
-console.log(draelNew);
-console.log(`
-String
-with multiple
-lines`);
+// console.log(draelNew);
+// console.log(`
+// String
+// with multiple
+// lines`);
+
+
+//type conversion
+
+// const inputYear = '1991';
+// console.log(Number(inputYear),inputYear);
+// console.log(Number(inputYear)-18);
+
+// console.log(String(23), 23);
+
+
+// console.log(Boolean(0)); //falsy
+// console.log(Boolean(undefined)); //falsy
+// console.log(Boolean('')); //falsy
+// console.log(Boolean('Jonas')); //truthy
+// console.log(Boolean({})); //truthy
+
+
+// const money = 0;
+// if (money) {
+//     console.log("Dont spend it all");
+// }else {
+//     console.log("You should get a job!");
+// }
+
+
+//type coercion
+
+// console.log('I am '+29+ " years old");
+
+
+//Equality Operators: == vs. ===
+// it is better to use === and use type conversion to convert string into a number
+
+
+//Ternary Operator -> ?():();
+// const age = 25;
+
+//regular if else
+// if (age>=18) {
+//     console.log('wine 🍷');
+// } else {
+//     console.log('milk 🥛');
+// }
+
+//shorter
+// age >= 18 ?
+// console.log('wine 🍷'):
+// console.log('milk 🥛');
+
+//Even shorter
+
+// const drink = age>= 18 ? 'wine 🍷' : 'milk 🥛';
+// console.log(drink);
+
+//expression
+// console.log(`I like to drink ${age>= 18 ? 'wine 🍷' : 'milk 🥛'}`);
+
 
