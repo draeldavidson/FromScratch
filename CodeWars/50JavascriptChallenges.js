@@ -88,38 +88,39 @@ You need to return the highest scoring word as a string.
 If two words score the same, return the word that appears earliest in the original string.
  */
 
-function high(x) {
-  let myArray = x.split(" ");
-  // return myArray
+// function high(x) {
+//     // TURNS THE STRING INTO AN ARRAY
+//   let myArray = x.split(" ");
 
-  let oneWord= [];
-  let largestSum = 0;
-  let largestWord = '';
-  for (let i = 0; i < myArray.length; i++) {
-    oneWord=myArray[i]
-    let sumOfOneWord= 0;
+//   let oneWord= [];
+//   let largestSum = 0;
+//   let largestWord = '';
+//   for (let i = 0; i < myArray.length; i++) {
+//       // TAKES THE ARRAY AND CREATES A NEW ARRAY WITH ONE WORD
+//     oneWord=myArray[i]
+//     let sumOfOneWord= 0;
+//     // CYCLES THROUGH THAT ONE WORD AND GETS THE SCORE OF EACH LETTER
+//     for (let i = 0; i < oneWord.length; i++) {
+//         //ADDS THE LETTERS UP INTO ONE SUM
+//         sumOfOneWord += String(oneWord).charCodeAt(i)-96;
 
-    for (let i = 0; i < oneWord.length; i++) {
-        sumOfOneWord += String(oneWord).charCodeAt(i)-96;
-        
-        
-        if (sumOfOneWord > largestSum) {
-            largestSum = sumOfOneWord;
-            largestWord = oneWord;
-        }
-    }
-        }
-        return largestWord;
-}
+//         if (sumOfOneWord > largestSum) {
+//             largestSum = sumOfOneWord;
+//             largestWord = oneWord;
+//         }
+//     }
+//         }
+//         return largestWord;
+// }
 
-// console.log('abc'.charCodeAt(2)-96);
+// // console.log('abc'.charCodeAt(2)-96);
 
-console.log(high("man i need a taxi up to ubud"));
-// console.log(high("taxi"));
-console.log(high('what time are we climbing up the volcano'));
-console.log(high('take me to semynak'));
-console.log(high('aa b'));
-console.log(high('b aa'));
-console.log(high('bb d'));
-console.log(high('d bb'));
-console.log(high('aaa b'));
+// console.log(high("my name is drael it is very nice to meet you"));
+// console.log(high("man i need a taxi up to ubud"));
+// console.log(high('what time are we climbing up the volcano'));
+// console.log(high('take me to semynak'));
+// console.log(high('aa b'));
+// console.log(high('b aa'));
+// console.log(high('bb d'));
+// console.log(high('d bb'));
+// console.log(high('aaa b'));
