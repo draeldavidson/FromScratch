@@ -8,6 +8,8 @@
 //   return strPhoneNumber;
 // }
 
+// console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
+
 //CODING CHALLENGE
 
 /** 2. Given two integers a and b, which can be positive or negative,
@@ -35,6 +37,8 @@
 // }
 
 // console.log(getSum(-505, 4));
+// console.log(getSum(0,-1));
+// console.log(getSum(0,10));
 
 //CODING CHALLENGE
 /** 3.Given an array of ones and zeroes, convert the equivalent binary value to an integer.
@@ -46,6 +50,7 @@
 //   return parseInt(withoutCommas, 2);
 
 // };
+// console.log(binaryArrayToNumber([1, 0, 1, 0]));
 // console.log(binaryArrayToNumber([1, 0, 1, 0, 1, 0]));
 // console.log(binaryArrayToNumber([1,0,1,1,0,1,1,0,1,0,1,0,1,0,1,0,1]));
 
@@ -124,3 +129,56 @@ If two words score the same, return the word that appears earliest in the origin
 // console.log(high('bb d'));
 // console.log(high('d bb'));
 // console.log(high('aaa b'));
+
+//CODING CHALLENGE #6
+/**
+Your task is to write a function maskify, which changes all but the last 
+four characters into '#'.
+
+1. replace the last 4 characters to #
+2. change sring to an array?
+2.find the length of the array - 4?
+    if array.length <= 4 return string
+3.iterate through the array if place in array = .length-4,3,2,1 
+print # else print [i]?
+
+*/
+// return masked string
+// function maskify(cc) {
+//   let myArray = cc.split("");
+//   let length = myArray.length;
+//   if (length <= 4) {
+
+//       let strAgain = myArray.join('');
+//       return strAgain;
+//   } else {
+//       newArray = [];
+//       for (let i = 0; i < myArray.length; i++) {
+//           if (i < length - 4) {
+//               newArray.push('#');
+//           }else{
+//               newArray.push(myArray[i]);
+//           }
+
+//       }
+//       strAgain= newArray.join('');
+//       return strAgain
+//   }
+
+// }
+
+// //TESTS
+// console.log(maskify("4556364607935616"));
+// console.log(maskify("1"));
+// console.log(maskify("11111"));
+// console.log(maskify("Skippy"));
+
+//CODING CHALLENGE #7
+
+/**
+ Digital root is the recursive sum of all the digits in a number.
+ Given n, take the sum of the digits of n. If that value has more than one digit, 
+ continue reducing in this way until a single-digit number is produced. 
+ */
+
+ 
