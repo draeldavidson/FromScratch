@@ -148,23 +148,20 @@ print # else print [i]?
 //   let myArray = cc.split("");
 //   let length = myArray.length;
 //   if (length <= 4) {
-
-//       let strAgain = myArray.join('');
-//       return strAgain;
+//     let strAgain = myArray.join("");
+//     return strAgain;
 //   } else {
-//       newArray = [];
-//       for (let i = 0; i < myArray.length; i++) {
-//           if (i < length - 4) {
-//               newArray.push('#');
-//           }else{
-//               newArray.push(myArray[i]);
-//           }
-
+//     newArray = [];
+//     for (let i = 0; i < myArray.length; i++) {
+//       if (i < length - 4) {
+//         newArray.push("#");
+//       } else {
+//         newArray.push(myArray[i]);
 //       }
-//       strAgain= newArray.join('');
-//       return strAgain
+//     }
+//     strAgain = newArray.join("");
+//     return strAgain;
 //   }
-
 // }
 
 // //TESTS
@@ -181,4 +178,32 @@ print # else print [i]?
  continue reducing in this way until a single-digit number is produced. 
  */
 
- 
+// function digital_root(n) {
+//   //   //   return array
+//   let arraySum = n;
+//   while (String(arraySum).split("").length >= 2) {
+//     // return `yes`;
+//     let array = String(arraySum).split("");
+//     // return `${n} is more than 2 digits`;
+//     arraySum = 0;
+//     for (let i = 0; i < array.length; i++) {
+//       arraySum += Number(array[i]);
+//       //   array.length = 0;
+//       //   array.push(arraySum);
+//     }
+//     // n = arraySum;
+//     // return array;
+// }
+// return arraySum;
+// }
+
+// function digital_root(n) {
+//     return (n - 1) % 9 + 1;
+//   }
+
+// // //TEST
+// console.log(digital_root(6));
+// console.log(digital_root(16));
+// console.log(digital_root(456));
+// console.log(digital_root(0));
+
