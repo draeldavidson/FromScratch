@@ -47,22 +47,79 @@ const restaurant = {
     console.log(otherIngredients);
   }
 };
+//
+//console.log(restaurant.openingHours.mon.open);// error because mon doesnt exist
 
-//ITERATING THROUGH AN ARRAY
+// if (restaurant.openingHours && restaurant.openingHours.mon) {
+//   console.log(restaurant.openingHours.mon.open);
+// } //better because it checks condition first
+// console.log(restaurant.openingHours.mon?.open);//undefined
+// //checks if opening hours exists.
+// console.log(restaurant.openingHours?.mon?.open);//undefined
+
+// console.log(restaurant.openingHours.fri?.open);// 11
+
+const daysOfWeek = ['mon','tue','wed','thu','fri','sat','sun'];
+
+for(const day of daysOfWeek){
+  const open = restaurant.openingHours?.[day]?.open ?? 'closed'
+  // console.log(`On ${day}, we open at ${open}`);
+}
+
+const user = [{name:'Drael', email:'hello@drael.io'}];
+// const user = [];
+
+//this is easier than 
+// console.log(user[0]?.name ?? 'User array empty');
+
+//this
+if (user.length>0) {
+  // console.log(user[0].name);
+} else {
+  // console.log('User array empty');
+}
+
+// Looping Objects: Object Keys, Values, and Entries
+
+// Property NAMES
+// const properties = Object.keys(openingHours);
+// console.log(properties);
+
+// let openStr = `We are open on ${properties.length} days: `;
+// for (const day of properties) {
+//   openStr += `${day}, `;
+// }
+// console.log(openStr);
+
+// // Property VALUES
+// const values = Object.values(openingHours);
+// console.log(values);
+
+// // Entire object
+// const entries = Object.entries(openingHours);
+// // console.log(entries);
+
+// // [key, value]
+// for (const [day, { open, close }] of entries) {
+//   console.log(`On ${day} we open at ${open} and close at ${close}`);
+// }
+
+
+//ITERATING THROUGH AN ARRAY//
 //1
 const menu = [...restaurant.starterMenu, ... restaurant.mainMenu];
 for (const item of menu) {
-  console.log(item);
+  // console.log(item);
   
 }
 //2
 for (const item of menu.entries()) {
-  console.log(`${item[0] + 1}: ${item[1]}`);
+  // console.log(`${item[0] + 1}: ${item[1]}`);
   
 }
 //3
 for (const [item, entries] of menu.entries()) {
-  console.log(`${item + 1}: ${entries}`);
+  // console.log(`${item + 1}: ${entries}`);
   
 }
 

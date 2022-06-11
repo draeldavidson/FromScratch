@@ -52,16 +52,16 @@ TEST DATA 2: [12, 5, -5, 0, 4]
 
 //LMAO I READ THE QUESTION WRONG I WAS JUST SUPPOSED TO MAKE THE ARRAY A STRING
 
-const data1 = [17, 21, 23];
-const data2 = [12, 5, -5, 0, 4];
+// const data1 = [17, 21, 23];
+// const data2 = [12, 5, -5, 0, 4];
 
-const printForecast = function (arr) {
-  let arrayStr = "";
-  for (let i = 0; i < arr.length; i++) {
-    arrayStr += `${arr[i]}ºC in ${i + 1} days ... `;
-  }
-  console.log("... " + arrayStr);
-};
+// const printForecast = function (arr) {
+//   let arrayStr = "";
+//   for (let i = 0; i < arr.length; i++) {
+//     arrayStr += `${arr[i]}ºC in ${i + 1} days ... `;
+//   }
+//   console.log("... " + arrayStr);
+// };
 
-printForecast(data1);
-printForecast(data2);
+// printForecast(data1);
+// printForecast(data2);

@@ -334,36 +334,36 @@ TEST DATA: 22, 295, 176, 440, 37, 105, 10, 1100, 86 and 52
 GOOD LUCK 😀
 */
 
-const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
-const tips = [];
-const totals = [];
+// const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+// const tips = [];
+// const totals = [];
 
-for (let row = 0; row < bills.length; row++) {
-    if (bills[row] >= 50 && bills[row] <= 300){
-        // console.log(bills[row] * .15);
-        const tip =bills[row] * .15;
-        // tips.push(bills[row] * .15);
-        tips.push(tip);
-        // totals.push((bills[row])+(bills[row] * .15))
-        const total = (bills[row])+tip;
-        totals.push(total);
+// for (let row = 0; row < bills.length; row++) {
+//     if (bills[row] >= 50 && bills[row] <= 300){
+//         // console.log(bills[row] * .15);
+//         const tip =bills[row] * .15;
+//         // tips.push(bills[row] * .15);
+//         tips.push(tip);
+//         // totals.push((bills[row])+(bills[row] * .15))
+//         const total = (bills[row])+tip;
+//         totals.push(total);
 
-        console.log(`The $${bills[row]} will have a ${tip} tip and a $${total} total`);
+//         console.log(`The $${bills[row]} will have a ${tip} tip and a $${total} total`);
 
-    }else{
-        // console.log(bills[row] * .20);
-        const tip =bills[row] * .20;
-        // tips.push(bills[row] * .20);
-        tips.push(tip);
-        // totals.push((bills[row])+(bills[row] * .20))
-        // totals.push((bills[row])+tip);
-        const total = (bills[row])+tip;
-        totals.push(total);
+//     }else{
+//         // console.log(bills[row] * .20);
+//         const tip =bills[row] * .20;
+//         // tips.push(bills[row] * .20);
+//         tips.push(tip);
+//         // totals.push((bills[row])+(bills[row] * .20))
+//         // totals.push((bills[row])+tip);
+//         const total = (bills[row])+tip;
+//         totals.push(total);
 
-        console.log(`The $${bills[row]} will have a ${tip} tip and a $${total} total`);
+//         console.log(`The $${bills[row]} will have a ${tip} tip and a $${total} total`);
 
-}
-}
+// }
+// }
 // console.log(bills);
 // console.log(tips);
 // console.log(totals);
@@ -372,14 +372,14 @@ for (let row = 0; row < bills.length; row++) {
 //   4.1. First, you will need to add up all values in the array. To do the addition, start by creating a variable 'sum' that starts at 0. Then loop over the array using a for loop. In each iteration, add the current value to the 'sum' variable. This way, by the end of the loop, you have all values added together
 //   4.2. To calculate the average, divide the sum you calculated before by the length of the array (because that's the number of elements)
 //   4.3. Call the function with the 'totals' array
-const arr = [];
-const calcAverage = function(arr){
-    let sum = 0;
-    for (let row = 0; row < arr.length; row++) {
-         sum += arr[row];
-    }
-    const average = sum / arr.length
-    return average;
+// const arr = [];
+// const calcAverage = function(arr){
+//     let sum = 0;
+//     for (let row = 0; row < arr.length; row++) {
+//          sum += arr[row];
+//     }
+//     const average = sum / arr.length
+//     return average;
 
-}
-console.log(calcAverage(totals));
+// }
+// console.log(calcAverage(totals));
