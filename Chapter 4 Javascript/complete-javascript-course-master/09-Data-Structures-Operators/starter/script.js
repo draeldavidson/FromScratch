@@ -45,7 +45,7 @@ const restaurant = {
   orderPizza: function (mainIngredient, ...otherIngredients) {
     console.log(mainIngredient);
     console.log(otherIngredients);
-  }
+  },
 };
 //
 //console.log(restaurant.openingHours.mon.open);// error because mon doesnt exist
@@ -59,21 +59,21 @@ const restaurant = {
 
 // console.log(restaurant.openingHours.fri?.open);// 11
 
-const daysOfWeek = ['mon','tue','wed','thu','fri','sat','sun'];
+const daysOfWeek = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
-for(const day of daysOfWeek){
-  const open = restaurant.openingHours?.[day]?.open ?? 'closed'
+for (const day of daysOfWeek) {
+  const open = restaurant.openingHours?.[day]?.open ?? 'closed';
   // console.log(`On ${day}, we open at ${open}`);
 }
 
-const user = [{name:'Drael', email:'hello@drael.io'}];
+const user = [{ name: 'Drael', email: 'hello@drael.io' }];
 // const user = [];
 
-//this is easier than 
+//this is easier than
 // console.log(user[0]?.name ?? 'User array empty');
 
 //this
-if (user.length>0) {
+if (user.length > 0) {
   // console.log(user[0].name);
 } else {
   // console.log('User array empty');
@@ -104,42 +104,37 @@ if (user.length>0) {
 //   console.log(`On ${day} we open at ${open} and close at ${close}`);
 // }
 
-
 //ITERATING THROUGH AN ARRAY//
 //1
-const menu = [...restaurant.starterMenu, ... restaurant.mainMenu];
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 for (const item of menu) {
   // console.log(item);
-  
 }
 //2
 for (const item of menu.entries()) {
   // console.log(`${item[0] + 1}: ${item[1]}`);
-  
 }
 //3
 for (const [item, entries] of menu.entries()) {
   // console.log(`${item + 1}: ${entries}`);
-  
 }
-
-
 
 //////////////// DESTRUCTURING //////////////////////
 //SPREAD VS REST
 
 //SPREAD on the RIGHT SIDE of =
-// const arr = [1,2,...[3,4]];
+// const arr = [1, 2, ...[3, 4]];
 // console.log(arr);
 
-// //REST on the LEFT SIDE of =
-// const [a,b, ...others]= [1,2,3,4,5];
-// console.log(a,b, others);
-// const welp = [a,b, ...others];
+// // //REST on the LEFT SIDE of =
+// const [a, b, ...others] = [1, 2, 3, 4, 5];
+// console.log(a, b, others);
+// const welp = [a, b, ...others];
 // console.log(...welp);
 // //OBJECTS
-// const {sat, ...weekdays} = restaurant.openingHours;
+// const { sat, ...weekdays } = restaurant.openingHours;
 // console.log(weekdays);
+
 
 //////////// Functions ///////////////
 // can pass and array or just numbers.
@@ -149,7 +144,7 @@ for (const [item, entries] of menu.entries()) {
 //   let sum = 0;
 //   for (let i = 0; i < numbers.length; i++) {
 //     sum+=numbers[i]
-    
+
 //   }
 // console.log(sum);
 // }
@@ -179,7 +174,6 @@ for (const [item, entries] of menu.entries()) {
 // restaurantCopy.name = 'Restoranti Roma';
 // console.log(restaurantCopy.name);
 // console.log(restaurant.name);
-
 
 //SPREAD OPERATOR
 // const arr = [7,8,9];
