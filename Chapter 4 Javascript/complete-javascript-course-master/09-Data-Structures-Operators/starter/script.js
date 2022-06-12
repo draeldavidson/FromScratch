@@ -1,5 +1,6 @@
 'use strict';
 
+/** 
 // const { weekdays } = require("moment");
 
 // Data needed for a later exercise
@@ -263,3 +264,59 @@ for (const [item, entries] of menu.entries()) {
 // ({ a, b } = obj);
 
 // console.log(a, b);
+*/
+
+///////////////////////////////////////
+// Working With Strings - Part 1
+// const airline = 'TAP Air Portugal';
+// const plane = 'A320';
+
+// console.log(plane[0]);
+// console.log(plane[1]);
+// console.log(plane[2]);
+// console.log('B737'[0]);
+
+// console.log(airline.length);
+// console.log('B737'.length);
+
+// console.log(airline.indexOf('r'));
+// console.log(airline.lastIndexOf('r'));
+// console.log(airline.indexOf('portugal'));
+
+// console.log(airline.slice(4));
+// console.log(airline.slice(4, 7));
+
+// console.log(airline.slice(0, airline.indexOf(' ')));
+// console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+// console.log(airline.slice(-2));
+// console.log(airline.slice(1, -1));
+
+// const checkMiddleSeat = function(seat){
+//   const s = seat.slice(-1);
+//   if (s=== 'B' || s=== 'E') {
+//     console.log('You got the middle seat...');
+//   }else{
+//     console.log('You got Lucky!');
+//   }
+// }
+
+// checkMiddleSeat('11B');
+// checkMiddleSeat('23C');
+// checkMiddleSeat('3E');
+
+
+// const correctName = function(badname){
+//   const passengerLower = badname.toLowerCase();
+//   const passengerCorrect = passengerLower[0].toUpperCase() + passengerLower.slice(1);
+//   console.log(passengerCorrect);
+// }
+
+// correctName('HeLLo')
+// correctName('drael');
+// correctName('DAVIDSON');
+
+// const announcement = 'All passengers come to boarding door 23. Boarding door 23.';
+// console.log(announcement.replace('door', 'gate'));
+// console.log(announcement.replaceAll('door', 'gate'));
+// console.log(announcement.replace(/door/g, 'gate'));//EXPRESSION
