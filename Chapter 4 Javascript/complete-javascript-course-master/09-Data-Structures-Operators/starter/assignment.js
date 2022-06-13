@@ -42,12 +42,9 @@ const game = {
 
 // Coding Challenge #2
 
-
-
 // Let's continue with our football betting app!
 
 // 1. Loop over the game.scored array and print each player name to the console, along with the goal number (Example: "Goal 1: Lewandowski")
-for (const [i,player]of game.scored.entries())
 // console.log(`Goal ${i+1}: ${player}`);
 
 // 2. Use a loop to calculate the average odd and log it to the console (We already studied how to calculate averages, you can go check if you don't remember)
@@ -64,14 +61,11 @@ for (const [i,player]of game.scored.entries())
 //       Odd of draw: 3.25
 //       Odd of victory Borrussia Dortmund: 6.5
 // Get the team names directly from the game object, don't hardcode them (except for "draw"). HINT: Note how the odds and the game objects have the same property names 😉
-for (const [team, odd] of Object.entries(game.odds)){
-  const teamSr = team === 'x' ? 'draw':`victory ${game[team]}`;
-  // console.log(`Odd of ${teamSr}: ${odd}`);
-
-}
-
-
-
+for (const [i, player] of game.scored.entries())
+  for (const [team, odd] of Object.entries(game.odds)) {
+    const teamSr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+    // console.log(`Odd of ${teamSr}: ${odd}`);
+  }
 
 // BONUS: Create an object called 'scorers' which contains the names of the players who scored as properties, and the number of goals as the value. In this game, it will look like this:
 //       {
@@ -108,32 +102,31 @@ TEST DATA FOR 6: Use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'. Th
 GOOD LUCK 😀
 */
 
-
 //1. Create one player array for each team (variables 'players1' and 'players2')
 
-  const players1 = game.players[0];
+const players1 = game.players[0];
 //   console.log(players1);
 
-  const players2 = game.players[1];
+const players2 = game.players[1];
 //   console.log(players2);
 
 // const [players1, players2] = game.players;
 
-  //2. The first player in any player array is the goalkeeper and the others are field players. 
-//   For Bayern Munich (team 1) create one variable ('gk') with the goalkeeper's name, and one array 
+//2. The first player in any player array is the goalkeeper and the others are field players.
+//   For Bayern Munich (team 1) create one variable ('gk') with the goalkeeper's name, and one array
 //   ('fieldPlayers') with all the remaining 10 field players
-const [goalkeeper, ...fieldPlayers]= players1;
+const [goalkeeper, ...fieldPlayers] = players1;
 const gk = goalkeeper;
 // console.log(gk);
 // console.log(fieldPlayers);
 
 //3. Create an array 'allPlayers' containing all players of both teams (22 players)
-const allPlayers= [...players1, ...players2];
+const allPlayers = [...players1, ...players2];
 // console.log(allPlayers);
 
 //4. During the game, Bayern Munich (team 1) used 3 substitute players. So create a new array ('players1Final') containing all the original team1 players plus 'Thiago', 'Coutinho' and 'Perisic'
 
-const players1Final = ['Thiago', 'Coutinho','Perisic', ...players1];
+const players1Final = ['Thiago', 'Coutinho', 'Perisic', ...players1];
 // console.log(players1Final);
 
 //5. Based on the game.odds object, create one variable for each odd (called 'team1', 'draw' and 'team2')
@@ -141,22 +134,28 @@ const players1Final = ['Thiago', 'Coutinho','Perisic', ...players1];
 // const draw = game.odds.x;
 // const team2 = game.odds.team2;
 
-const {odds:{team1,x:draw,team2},}= game;
+const {
+  odds: { team1, x: draw, team2 },
+} = game;
 // console.log(team1, draw, team2);
 
 // console.log(team1, draw, team2);
 
-//6. Write a function ('printGoals') that receives an arbitrary number of player names (NOT an array) and prints each of them to the console, 
+//6. Write a function ('printGoals') that receives an arbitrary number of player names (NOT an array) and prints each of them to the console,
 //along with the number of goals that were scored in total (number of player names passed in)
 
 const printGoals = function (...playerNames) {
-    let theNames= [];
-    for (let i = 0; i < playerNames.length-1; i++) {
-        theNames.push(playerNames[i])
-    }
-    // console.log(...theNames);
-    console.log(`${theNames}, & ${(playerNames[playerNames.length-1])} scored ${playerNames.length} goals!!!`);
-}
+  let theNames = [];
+  for (let i = 0; i < playerNames.length - 1; i++) {
+    theNames.push(playerNames[i]);
+  }
+  // console.log(...theNames);
+  console.log(
+    `${theNames}, & ${playerNames[playerNames.length - 1]} scored ${
+      playerNames.length
+    } goals!!!`
+  );
+};
 // // printGoals(...game.scored);
 // printGoals('Pavard',
 // 'Martinez',
@@ -201,24 +200,59 @@ Afterwards, test with your own test data!
 
 GOOD LUCK 😀
 */
-document.body.append(document.createElement('textarea'));
-document.body.append(document.createElement('button'));
+// document.body.append(document.createElement('textarea'));
+// document.body.append(document.createElement('button'));
 
-document.querySelector('button').addEventListener('click', function () {
-  const text = document.querySelector('textarea').value;
+// document.querySelector('button').addEventListener('click', function () {
+//   const text = document.querySelector('textarea').value;
+//   const rows = text.split('\n');
+
+//   for (const [i, row] of rows.entries()) {
+//     const [first, second] = row.toLowerCase().trim().split('_');
+
+//     const output = `${first}${second.replace(
+//       second[0],
+//       second[0].toUpperCase()
+//     )}`;
+//     const addCheck = `${output.padEnd(20)}${'✅'.repeat(i + 1)}`;
+//     console.log(addCheck);
+
+//   }
+// });
+
+//translate the string into an array slice('/n') by enter
+//replace the _ with a  space.
+//replace the letter after the space with a capital  letter
+//remove the space
+//itterate through the array 20 characters ending in space
+//counter add ✅ * the number of the counter
+
+const translate = function (text) {
+  //turns into an array where each value is split by enter ('\n')
   const rows = text.split('\n');
 
+  // .entries has the index number with the array
   for (const [i, row] of rows.entries()) {
+    //makes everything lowercase... trims extra spaces... splits the array into 2.
     const [first, second] = row.toLowerCase().trim().split('_');
 
+    //takes that array and maked the seccond word first char uppercase
     const output = `${first}${second.replace(
       second[0],
       second[0].toUpperCase()
     )}`;
-    console.log(`${output.padEnd(20)}${'✅'.repeat(i + 1)}`);
+    // adds spacces at the end until its 20, then repeats the ✅ for each index of the i.
+    const addCheck = `${output.padEnd(20)}${'✅'.repeat(i + 1)}`;
+    console.log(addCheck);
   }
-});
-
+};
+// translate(`underscore_case
+// first_name
+// Some_Variable
+//  calculate_AGE
+// delayed_departure
+// DRael_DaVIdsoN
+// Happy_daYS`);
 
 ///////////////////////////////////////
 // String Methods Practice
@@ -231,25 +265,18 @@ const flights =
 //   🔴 Delayed Arrival from HEL to FAO (12h05)
 //            Departure from FAO to LIS (12h30)
 
+//takes the fist three characters and makes them uppercase
 const getCode = str => str.slice(0, 3).toUpperCase();
 
+// Splits the string at '+'
 for (const flight of flights.split('+')) {
+  //array with 4 elements
   const [type, from, to, time] = flight.split(';');
+  /** If it starts with _Delayed print 🔴
+   * replace the _ with a ' '
+   * replace the : with 'h' and pad the start so everything lines up
+   */
   const output = `${type.startsWith('_Delayed') ? '🔴' : ''}${type.replaceAll(
-    '_',
-    ' '
-  )} ${getCode(from)} ${getCode(to)} (${time.replace(':', 'h')})`.padStart(36);
+    '_', ' ')} ${getCode(from)} ${getCode(to)} (${time.replace(':', 'h')})`.padStart(36);
   console.log(output);
 }
-
-
-
-
-
-//translate the string into an array slice('/n') by enter
-//replace the _ with a  space.
-//replace the letter after the space with a capital  letter
-//remove the space
-//itterate through the array 20 characters ending in space
-//counter add ✅ * the number of the counter 
-console.log(`${'✅'}`);
