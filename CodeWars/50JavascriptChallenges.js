@@ -643,32 +643,32 @@ print # else print [i]?
  continue reducing in this way until a single-digit number is produced. 
  */
 
-// function digital_root(n) {
-//   //   //   return array
-//   let arraySum = n;
-//   while (String(arraySum).split("").length >= 2) {
-//     // return `yes`;
-//     let array = String(arraySum).split("");
-//     // return `${n} is more than 2 digits`;
-//     arraySum = 0;
-//     for (let i = 0; i < array.length; i++) {
-//       arraySum += Number(array[i]);
-//       //   array.length = 0;
-//       //   array.push(arraySum);
-//     }
-//     // n = arraySum;
-//     // return array;
-// }
-// return arraySum;
-// }
+function digital_root(n) {
+  //   //   return array
+  let arraySum = n;
+  while (String(arraySum).split("").length >= 2) {
+    // return `yes`;
+    let array = String(arraySum).split("");
+    // return `${n} is more than 2 digits`;
+    arraySum = 0;
+    for (let i = 0; i < array.length; i++) {
+      arraySum += Number(array[i]);
+      //   array.length = 0;
+      //   array.push(arraySum);
+    }
+    // n = arraySum;
+    // return array;
+}
+return arraySum;
+}
 
 // function digital_root(n) {
 //     return (n - 1) % 9 + 1;
 //   }
 
 // // //TEST
-// console.log(digital_root(6));
-// console.log(digital_root(16));
-// console.log(digital_root(456));
-// console.log(digital_root(0));
+console.log(digital_root(6));
+console.log(digital_root(16));
+console.log(digital_root(456));
+console.log(digital_root(04573573));
 

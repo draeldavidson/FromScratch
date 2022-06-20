@@ -153,13 +153,12 @@ const erroWings = {
   bookings: [],
 };
 
-
 const swiss = {
-    airline: 'Swiss Air Lines',
-    iataCode: 'LX',
-    bookings: [],
-  };
-  
+  airline: 'Swiss Air Lines',
+  iataCode: 'LX',
+  bookings: [],
+};
+
 //NOTES
 //CALL METHOD
 const book = lufthansa.book;
@@ -174,8 +173,157 @@ const book = lufthansa.book;
 //APPLY METHOD NOT USED AS OFTEN
 
 const flightData = [583, 'Drael Davidson'];
-book.apply(swiss, flightData);
-console.log(swiss);
-//THIS IS THE SAME AS APPLY
-book.call(swiss, ...flightData);
+// book.apply(swiss, flightData);
+// console.log(swiss);
+// //THIS IS THE SAME AS APPLY
+// book.call(swiss, ...flightData);
 
+//BIND METHOD
+
+const bookEW = book.bind(erroWings);
+// bookEW(23, 'Steven Williams');
+
+const bookEW23 = book.bind(erroWings, 23);
+// bookEW23('Drael Davidson');
+// console.log(erroWings);
+
+//with event listeners
+
+lufthansa.planes = 300;
+lufthansa.buyPlane = function () {
+  console.log(this);
+
+  this.planes++;
+  console.log(this.planes);
+};
+// lufthansa.buyPlane();
+
+// document
+//   .querySelector('.buy')
+//   .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+
+//partial application
+const addTax = (rate, value) => value + value * rate;
+// console.log(addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.23);
+
+// console.log(addVAT(100));
+// console.log(addVAT(23));
+
+//Coding Challenge
+//make the above into a function returning a function
+const addTax2 = function (rate) {
+  //   value + value * rate;
+  return function (value) {
+    return value + value * rate;
+  };
+};
+
+const addVAT2 = addTax2(0.23);
+// console.log(addVAT2(100));
+// console.log(addVAT2(23));
+
+//How to run a function once
+const runOnce = function () {
+  console.log('This will never run again');
+};
+// runOnce() // this doesnt make it run only once
+
+//Immediently invoked function expression IIFE for short
+//   (function () {
+//     console.log('This will never run again');
+//   }
+// )();
+
+//arrow function
+// (() => console.log('This will ALSO never run again'))();
+
+//NOTES Scopes are a method of encapsulation which means everything inside is private.
+
+//clousures is the closed over variable environment of the execution context in which a function was created, even after that execution context is gone.
+//easier def gives a function access to all the variabled of its parent function even after that parent function has returned.
+
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking();
+
+// booker();
+// booker();
+// booker();
+/**
+1 passengers
+2 passengers
+3 passengers
+ */
+//Example 1
+let f;
+
+function g() {
+  const a = 23;
+  f = function () {
+    console.log(a * 2);
+  };
+}
+
+function h() {
+  const b = 777;
+  f = function () {
+    console.log(b * 2);
+  };
+}
+
+// g();
+// f();
+// console.dir(f);
+
+// h();
+// f();
+// console.dir(f);
+
+//example 2
+const boardPassengers = function (n, wait) {
+  const perGroup = n / 3;
+
+  setTimeout(function () {
+    console.log(`We are now boarding all ${n} passengers`);
+    console.log(`There are 3 groups each with ${perGroup} passengers.`);
+  }, wait * 1000);
+
+  console.log(`Will start boarding in ${wait} secconds`);
+};
+
+// setTimeout(function () {
+//   console.log('TIMER');
+// }, 1000);
+
+// boardPassengers(180,5);
+
+///////////////////////////////////////
+// Coding Challenge #2
+
+/* 
+This is more of a thinking challenge than a coding challenge 🤓
+
+Take the IIFE below and at the end of the function, attach an event listener that changes the color of the selected h1 element ('header') to blue, each time the BODY element is clicked. Do NOT select the h1 element again!
+
+And now explain to YOURSELF (or someone around you) WHY this worked! Take all the time you need. Think about WHEN exactly the callback function is executed, and what that means for the variables involved in this example.
+
+GOOD LUCK 😀
+*/
+
+(function () {
+  const header = document.querySelector('h1');
+  header.style.color = 'blue';
+
+  document.querySelector('body').addEventListener('click', function () {
+    header.style.color = 'pink';
+  });
+})();
