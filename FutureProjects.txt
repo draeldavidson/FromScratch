@@ -1,7 +1,9 @@
 
-an interactive <canvas> page
+an interactive <canvas> page where there are strings across a web page and when the mouse touches they make a sound and 
+ then paint flies off and collors the page beneath
 
 Create a function that reads a boolean input and logs an output based on true or false. started in ControlledFlow.js
+
 
 
 

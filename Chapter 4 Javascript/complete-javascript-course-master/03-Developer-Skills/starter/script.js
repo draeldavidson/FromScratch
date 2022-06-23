@@ -17,6 +17,7 @@
  * BUTTON
  * FUNCTION
  * SECTION
+ * SELECTORS
  */
 
 // PROBLEM 1:
