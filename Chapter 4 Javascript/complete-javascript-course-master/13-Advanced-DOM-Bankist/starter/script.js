@@ -19,6 +19,8 @@ const tabContent = document.querySelectorAll('.operations__content');
 const nav = document.querySelector('.nav');
 //☁️ STICKY NAV
 const header = document.querySelector('.header');
+//☁️ LAZY LOADING IMAGES
+const imgTargets = document.querySelectorAll('img[data-src');
 
 
 /////////////////////////////////////////////////////////
@@ -156,7 +158,7 @@ const mouseFade = function (event, opacity) {
     });
     logo.style.opacity = this;
   }
-  //WHEN WE MADE THE  NAV STICKY IT OVERRIDDED THE OPACITY 
+  //WHEN WE MADE THE  NAV STICKY IT OVERRIDDED THE OPACITY
   //SO INSTEAD OF PASSING THE NUM AS "OPACITY" WE DO IT AS "THIS"
   // console.log("im faded");
 };
@@ -208,53 +210,81 @@ nav.addEventListener('mouseout', mouseFade.bind(1));
 
 // observer.observe(section1)
 
-
 const stickyNav = function (entries) {
   const [entry] = entries;
   // console.log(entry);
   if (!entry.isIntersecting) {
     nav.classList.add('sticky');
-    
   } else {
-        nav.classList.remove('sticky');
-
+    nav.classList.remove('sticky');
   }
-
-}
-const headerObserver = new IntersectionObserver(stickyNav,{
-  root:null,
+};
+const headerObserver = new IntersectionObserver(stickyNav, {
+  root: null,
   threshold: 0,
-  rootMargin: '-90px'
-})
+  rootMargin: '-90px',
+});
 
-headerObserver.observe(header)
-
+headerObserver.observe(header);
 
 //☁️ REVEALING ELEMENTS ON SCROLL SECTION
 
-
-const allSections = document.querySelectorAll('.section')
+const allSections = document.querySelectorAll('.section');
 
 const revealSection = function (entries, observer) {
-const [entry]= entries;
-console.log(entry);
+  const [entry] = entries;
+  // console.log(entry);
 
-if(!entry.isIntersecting) return
-entry.target.classList.remove('section--hidden')
-observer.unobserve(entry.target)
-}
+  if (!entry.isIntersecting) return;
+  entry.target.classList.remove('section--hidden');
+  observer.unobserve(entry.target);
+};
 
-const sectionObserver = new IntersectionObserver(revealSection,{
-root: null,
-threshold: 0.15,
-})
+const sectionObserver = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.15,
+});
 
 allSections.forEach(function (section) {
-  sectionObserver.observe(section)
-  section.classList.add('section--hidden')
-})
+  sectionObserver.observe(section);
+  // section.classList.add('section--hidden');
+});
 
+//☁️ LAZY LOADING IMAGES SECTION
 
+// console.log(imgTargets);
+
+const loadImg = function (entries, observer) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) return;
+  entry.target.src = entry.target.dataset.src;
+  // ⬇ DOESNT RMOVE THE LOW QUALITY IMAGE AS FAST AS IT REMOVES THE FILTER ⬇ 
+  // entry.target.classList.remove('lazy-img');
+
+  entry.target.addEventListener('load',function(){
+    entry.target.classList.remove('lazy-img');
+
+  });
+};
+
+const imgObserver = new IntersectionObserver(loadImg, {
+  root: null,
+  threshold: 0,
+  rootMargin:'200px'
+});
+
+imgTargets.forEach(img => imgObserver.observe(img));
+
+//☁️ SLIDERS SECTION
+
+const slides = document.querySelectorAll('.slide');
+
+const slider = document.querySelector('.slider')
+slider.style.transform = 
+
+slides.forEach((slide,index)=>slide.style.transform = `translateX(${100*index}%)`)
+
+//-200% further left -100% left 0% center 100% right 200% further right
 
 //
 //////////////////////////////////////////////////////////////////////
