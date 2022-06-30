@@ -5,7 +5,6 @@ Makefile.in
 /mdate-sh
 /py-compile
 /test-driver
-/ylwrap
 node_modules
 .parcel-cache
 dist
