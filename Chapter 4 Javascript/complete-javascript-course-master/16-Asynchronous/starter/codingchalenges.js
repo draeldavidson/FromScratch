@@ -1,5 +1,5 @@
 ///////////////////////////////////////
-console.log('Coding Challenge #1');
+// console.log('Coding Challenge #1');
 
 // In this challenge you will build a function 'whereAmI' which renders a country ONLY based on GPS coordinates. For that, you will use a second API to geocode coordinates.
 
@@ -8,16 +8,63 @@ console.log('Coding Challenge #1');
 // PART 1
 // 1. Create a function 'whereAmI' which takes as inputs a latitude value (lat) and a longitude value (lng)
 // (these are GPS coordinates, examples are below).
+const renderCountry1 = function (data, className = '') {
+  const html = `
+        <article class="country ${className}">
+        <img class="country__img" src="${data.flag}" />
+        <div class="country__data">
+        <h3 class="country__name">${data.name}</h3>
+        <h4 class="country__region">${data.region}</h4>
+        <p class="country__row"><span>👫</span>${(
+          +data.population / 1000000
+        ).toFixed(1)}</p>
+            <p class="country__row"><span>🗣️</span>${data.languages[0].name}</p>
+            <p class="country__row"><span>💰</span>${
+              data.currencies[0].name
+            }</p>
+            </div>
+            </article>
+            `;
+  countriesContainer.insertAdjacentHTML('beforeend', html);
+  countriesContainer.style.opacity = 1;
+};
 
 const whereAmI = function (lat, lng) {
-  console.log(lat, lng);
+  // console.log(lat, lng);
   // 2. Do 'reverse geocoding' of the provided coordinates.
-    const json =
-  fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`).then(response => response.json()
-  ).then(data=>{data[0]
-console.log(data.country);
-})
+  fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
+    .then(response => {
+      // console.log(response);
+      if (!response.ok)
+        throw new Error(`Problem with geocoding ${response.status}`);
+      return response.json();
+    })
+    .then(data => {
+      const country = data.country;
+      const city = data.city;
+      // console.log(data);
+      // 3. Once you have the data, take a look at it in the console to see all the attributes
+      //that you recieved about the provided location.
+      if (!country) return console.error(`NO COUNTRY FOUND ❌`);
+      // console.log(`You are in ${city}, ${country}`);
+
+      return fetch(`https://restcountries.com/v2/name/${country}`)
+        .then(response => {
+          if (!response.ok) throw new Error(`${errorMsg} (${response.status})`);
+          // console.log(response);
+          return response.json();
+        })
+        .then(data => {
+          renderCountry1(data[0]);
+        });
+    })
+    .catch(err => console.error(`${err.message} ❌`));
 };
+
+// whereAmI(52.508, 13.381);
+// whereAmI(19.037, 72.873);
+// whereAmI(-33.933, 18.474);
+// whereAmI(-3.933, 1.74);
 
 // Reverse geocoding means to convert coordinates to a meaningful location,
 // like a city and country name. Use this API to do reverse geocoding: https://geocode.xyz/api.
@@ -47,6 +94,80 @@ console.log(data.country);
 
 // GOOD LUCK 😀
 
-whereAmI(52.508, 13.381);
-whereAmI(19.037, 72.873);
-whereAmI(-33.933, 18.474);
+///////////////////////////////////////
+// Coding Challenge #2
+
+/* 
+Build the image loading functionality that I just showed you on the screen.
+
+Tasks are not super-descriptive this time, so that you can figure out some stuff on your own.
+ Pretend you're working on your own 😉
+
+PART 1
+1. Create a function 'createImage' which receives imgPath as an input. 
+This function returns a promise which creates a new image 
+(use document.createElement('img')) and sets the .src attribute to the provided image path. 
+When the image is done loading, append it to the DOM element with the 'images' class, 
+and resolve the promise. The fulfilled value should be the image element itself. 
+In case there is an error loading the image ('error' event), reject the promise.
+
+If this part is too tricky for you, just watch the first part of the solution.
+
+PART 2
+2. Comsume the promise using .then and also add an error handler;
+3. After the image has loaded, pause execution for 2 seconds using the wait function we created earlier;
+4. After the 2 seconds have passed, hide the current image (set display to 'none'), and load a second image (HINT: Use the image element returned by the createImage promise to hide the current image. You will need a global variable for that 😉);
+5. After the second image has loaded, pause execution for 2 seconds again;
+6. After the 2 seconds have passed, hide the current image.
+
+TEST DATA: Images in the img folder. Test the error handler by passing a wrong image path. Set the network speed to 'Fast 3G' in the dev tools Network tab, otherwise images load too fast.
+
+GOOD LUCK 😀
+*/
+// const wait = function (seconds) {
+//   return new Promise(function (resolve) {
+//     setTimeout(resolve, seconds * 1000);
+//   });
+// };
+
+// const image = document.createElement('img');
+// const imgContainer = document.querySelector('.images');
+
+// function createimage(imgPath) {
+//   return new Promise((resolve, reject) => {
+//     image.src = imgPath;
+
+//     image.addEventListener('load', function () {
+//       imgContainer.append(image);
+//       resolve(image);
+//     });
+//     image.addEventListener('error', function () {
+//       reject(new Error('image not found'));
+//     });
+//   });
+// }
+
+// let currentImg;
+// createimage('img/img-1.jpg')
+//   .then(img => {
+//     currentImg = img;
+//     console.log('img 1 loaded');
+//     return wait(2);
+//   })
+//   .then(() => {
+//     currentImg.style.display = 'none';
+//     console.log('img 1 says bye');
+//     return createimage('img/img-2.jpg');
+//   })
+//   .then(img => {
+//     currentImg = img;
+//     currentImg.style.display = '';
+
+//     console.log('img 2 loaded');
+//     return wait(2);
+//   })
+//   .then(() => {
+//     currentImg.style.display = 'none';
+//     console.log('img 2 says bye');
+//   })
+//   .catch(err => console.error(err));

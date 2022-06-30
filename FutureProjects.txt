@@ -6,4 +6,8 @@ Create a function that reads a boolean input and logs an output based on true or
 
 Create an app where you can make character Sheets for OCs
 
+cute pop up error message for all future projects
+
+app that tracks your poop by just a button click
+
 
