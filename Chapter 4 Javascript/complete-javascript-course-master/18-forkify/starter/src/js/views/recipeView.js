@@ -3,17 +3,30 @@ import { Fraction } from 'fractional';
 
 import View from './View.js';
 
-class RecipeView extends View{
+class RecipeView extends View {
   _parentElement = document.querySelector('.recipe');
-  _errorMessage = `We could not find that recipe. Please try another one!`
-  _successMessage = `We could not find that recipe. Please try another one!`
-  
-  
+  _errorMessage = `We could not find that recipe. Please try another one!`;
+  _successMessage = `We could not find that recipe. Please try another one!`;
 
   addHandelerRender(handeler) {
     ['hashchange', 'load'].forEach(event =>
       window.addEventListener(event, handeler)
     );
+  }
+  addHandelerUpdateServings(handeler) {
+    this._parentElement.addEventListener('click', function (event) {
+      const btn = event.target.closest('.btn--update-servings');
+      if (!btn) return;
+      const updateTo = +btn.dataset.updateTo;
+      if (updateTo > 0) handeler(updateTo);
+    });
+  }
+  addHandlerAddBookmark(handler) {
+    this._parentElement.addEventListener('click', function (event) {
+      const btn = event.target.closest('.btn--bookmark');
+      if (!btn) return;
+      handler();
+    });
   }
 
   _generateMarkup() {
@@ -47,12 +60,16 @@ class RecipeView extends View{
           <span class="recipe__info-text">servings</span>
 
           <div class="recipe__info-buttons">
-            <button class="btn--tiny btn--increase-servings">
+            <button data-update-to="${
+              this.data.servings - 1
+            }" class="btn--tiny btn--update-servings">
               <svg>
                 <use href="${icons}#icon-minus-circle"></use>
               </svg>
             </button>
-            <button class="btn--tiny btn--increase-servings">
+            <button data-update-to="${
+              this.data.servings + 1
+            }" class="btn--tiny btn--update-servings">
               <svg>
                 <use href="${icons}#icon-plus-circle"></use>
               </svg>
@@ -60,14 +77,16 @@ class RecipeView extends View{
           </div>
         </div>
 
-        <div class="recipe__user-generated">
+        <div class="recipe__user-generated ${this.data.key ? '' : 'hidden'}">
           <svg>
             <use href="${icons}#icon-user"></use>
           </svg>
         </div>
-        <button class="btn--round">
+        <button class="btn--round btn--bookmark">
           <svg class="">
-            <use href="${icons}#icon-bookmark-fill"></use>
+            <use href="${icons}#icon-bookmark${
+      this.data.bookmarked ? '-fill' : ' '
+    }"></use>
           </svg>
         </button>
       </div>
