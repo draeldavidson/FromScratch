@@ -10,4 +10,8 @@ cute pop up error message for all future projects
 
 app that tracks your poop by just a button click
 
+i could use this for one of those choose your own story
+where the reader has to fill in the blank and the code
+immediantly calculates or inserts the readers answer.
+
 

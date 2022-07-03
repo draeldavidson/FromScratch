@@ -74,30 +74,30 @@ const accounts = [account1, account2, account3];
 
 /////////////////////////////////////////////////
 // Elements
-const labelWelcome = document.querySelector('.welcome');
-const labelDate = document.querySelector('.date');
-const labelBalance = document.querySelector('.balance__value');
-const labelSumIn = document.querySelector('.summary__value--in');
-const labelSumOut = document.querySelector('.summary__value--out');
-const labelSumInterest = document.querySelector('.summary__value--interest');
-const labelTimer = document.querySelector('.timer');
+// const labelWelcome = document.querySelector('.welcome');
+// const labelDate = document.querySelector('.date');
+// const labelBalance = document.querySelector('.balance__value');
+// const labelSumIn = document.querySelector('.summary__value--in');
+// const labelSumOut = document.querySelector('.summary__value--out');
+// const labelSumInterest = document.querySelector('.summary__value--interest');
+// const labelTimer = document.querySelector('.timer');
 
-const containerApp = document.querySelector('.app');
-const containerMovements = document.querySelector('.movements');
+// const containerApp = document.querySelector('.app');
+// const containerMovements = document.querySelector('.movements');
 
-const btnLogin = document.querySelector('.login__btn');
-const btnTransfer = document.querySelector('.form__btn--transfer');
-const btnLoan = document.querySelector('.form__btn--loan');
-const btnClose = document.querySelector('.form__btn--close');
-const btnSort = document.querySelector('.btn--sort');
+// const btnLogin = document.querySelector('.login__btn');
+// const btnTransfer = document.querySelector('.form__btn--transfer');
+// const btnLoan = document.querySelector('.form__btn--loan');
+// const btnClose = document.querySelector('.form__btn--close');
+// const btnSort = document.querySelector('.btn--sort');
 
-const inputLoginUsername = document.querySelector('.login__input--user');
-const inputLoginPin = document.querySelector('.login__input--pin');
-const inputTransferTo = document.querySelector('.form__input--to');
-const inputTransferAmount = document.querySelector('.form__input--amount');
-const inputLoanAmount = document.querySelector('.form__input--loan-amount');
-const inputCloseUsername = document.querySelector('.form__input--user');
-const inputClosePin = document.querySelector('.form__input--pin');
+// const inputLoginUsername = document.querySelector('.login__input--user');
+// const inputLoginPin = document.querySelector('.login__input--pin');
+// const inputTransferTo = document.querySelector('.form__input--to');
+// const inputTransferAmount = document.querySelector('.form__input--amount');
+// const inputLoanAmount = document.querySelector('.form__input--loan-amount');
+// const inputCloseUsername = document.querySelector('.form__input--user');
+// const inputClosePin = document.querySelector('.form__input--pin');
 
 /////////////////////////////////////////////////
 // Functions
@@ -243,142 +243,142 @@ let currentAccount, timer;
 // updateUI(currentAccount);
 // containerApp.style.opacity = 100;
 
-btnLogin.addEventListener('click', function (e) {
-  // Prevent form from submitting
-  e.preventDefault();
+// btnLogin.addEventListener('click', function (e) {
+//   // Prevent form from submitting
+//   e.preventDefault();
 
-  currentAccount = accounts.find(
-    acc => acc.username === inputLoginUsername.value
-  );
-  console.log(currentAccount);
+//   currentAccount = accounts.find(
+//     acc => acc.username === inputLoginUsername.value
+//   );
+//   console.log(currentAccount);
 
-  if (currentAccount?.pin === +inputLoginPin.value) {
-    // Display UI and message
-    labelWelcome.textContent = `Welcome back, ${
-      currentAccount.owner.split(' ')[0]
-    }`;
-    containerApp.style.opacity = 100;
+//   if (currentAccount?.pin === +inputLoginPin.value) {
+//     // Display UI and message
+//     labelWelcome.textContent = `Welcome back, ${
+//       currentAccount.owner.split(' ')[0]
+//     }`;
+//     containerApp.style.opacity = 100;
 
-    // const now = new Date();
-    // // labelDate.textContent = now;
-    // const day = `${now.getDate()}`.padStart(2, 0);
-    // const month = `${now.getMonth() + 1}`.padStart(2, 0);
-    // const year = now.getFullYear();
-    // const hour = now.getHours();
-    // const min = `${now.getMinutes()}`.padStart(2, 0);
-    // labelDate.textContent = `${day}/${month}/${year}, ${hour}:${min}`;
-    const options = {
-      hour: 'numeric',
-      minute: 'numeric',
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-      weekday: 'long',
-    };
-    // const locale = navigator.language;
-    const locale = currentAccount.locale;
+//     // const now = new Date();
+//     // // labelDate.textContent = now;
+//     // const day = `${now.getDate()}`.padStart(2, 0);
+//     // const month = `${now.getMonth() + 1}`.padStart(2, 0);
+//     // const year = now.getFullYear();
+//     // const hour = now.getHours();
+//     // const min = `${now.getMinutes()}`.padStart(2, 0);
+//     // labelDate.textContent = `${day}/${month}/${year}, ${hour}:${min}`;
+//     const options = {
+//       hour: 'numeric',
+//       minute: 'numeric',
+//       day: 'numeric',
+//       month: 'long',
+//       year: 'numeric',
+//       weekday: 'long',
+//     };
+//     // const locale = navigator.language;
+//     const locale = currentAccount.locale;
 
-    console.log(locale);
+//     console.log(locale);
 
-    const now = new Date();
-    labelDate.textContent = new Intl.DateTimeFormat(locale, options).format(
-      now
-    );
+//     const now = new Date();
+//     labelDate.textContent = new Intl.DateTimeFormat(locale, options).format(
+//       now
+//     );
 
-    // Clear input fields
-    inputLoginUsername.value = inputLoginPin.value = '';
-    inputLoginPin.blur();
-    if (timer)clearInterval(timer);
+//     // Clear input fields
+//     inputLoginUsername.value = inputLoginPin.value = '';
+//     inputLoginPin.blur();
+//     if (timer)clearInterval(timer);
 
-    timer = startLogOutTimer()
-    // Update UI
-    updateUI(currentAccount);
-  }
-});
+//     timer = startLogOutTimer()
+//     // Update UI
+//     updateUI(currentAccount);
+//   }
+// });
 
-btnTransfer.addEventListener('click', function (e) {
-  e.preventDefault();
-  const amount = +inputTransferAmount.value;
-  const receiverAcc = accounts.find(
-    acc => acc.username === inputTransferTo.value
-  );
-  inputTransferAmount.value = inputTransferTo.value = '';
+// btnTransfer.addEventListener('click', function (e) {
+//   e.preventDefault();
+//   const amount = +inputTransferAmount.value;
+//   const receiverAcc = accounts.find(
+//     acc => acc.username === inputTransferTo.value
+//   );
+//   inputTransferAmount.value = inputTransferTo.value = '';
 
-  if (
-    amount > 0 &&
-    receiverAcc &&
-    currentAccount.balance >= amount &&
-    receiverAcc?.username !== currentAccount.username
-  ) {
-    // Doing the transfer
-    currentAccount.movements.push(-amount);
-    receiverAcc.movements.push(amount);
+//   if (
+//     amount > 0 &&
+//     receiverAcc &&
+//     currentAccount.balance >= amount &&
+//     receiverAcc?.username !== currentAccount.username
+//   ) {
+//     // Doing the transfer
+//     currentAccount.movements.push(-amount);
+//     receiverAcc.movements.push(amount);
 
-    //ADD TRANSFER DATE
-    currentAccount.movementsDates.push(new Date().toISOString());
-    receiverAcc.movementsDates.push(new Date().toISOString());
-    // Update UI
-    updateUI(currentAccount);
-    clearInterval(timer);
+//     //ADD TRANSFER DATE
+//     currentAccount.movementsDates.push(new Date().toISOString());
+//     receiverAcc.movementsDates.push(new Date().toISOString());
+//     // Update UI
+//     updateUI(currentAccount);
+//     clearInterval(timer);
 
-    timer = startLogOutTimer()
+//     timer = startLogOutTimer()
 
-  }
-});
+//   }
+// });
 
-btnLoan.addEventListener('click', function (e) {
-  e.preventDefault();
+// btnLoan.addEventListener('click', function (e) {
+//   e.preventDefault();
 
-  const amount = Math.floor(inputLoanAmount.value);
+//   const amount = Math.floor(inputLoanAmount.value);
 
-  if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
-    // Add movement
-    setTimeout(function () {
-      currentAccount.movements.push(amount);
+//   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
+//     // Add movement
+//     setTimeout(function () {
+//       currentAccount.movements.push(amount);
 
-      //ADD TRANSFER DATE
-      currentAccount.movementsDates.push(new Date().toISOString());
+//       //ADD TRANSFER DATE
+//       currentAccount.movementsDates.push(new Date().toISOString());
 
-      // Update UI
-      updateUI(currentAccount);
-    }, 2500);
-  }
-  inputLoanAmount.value = '';
-  clearInterval(timer);
+//       // Update UI
+//       updateUI(currentAccount);
+//     }, 2500);
+//   }
+//   inputLoanAmount.value = '';
+//   clearInterval(timer);
 
-  timer = startLogOutTimer()
+//   timer = startLogOutTimer()
 
-});
+// });
 
-btnClose.addEventListener('click', function (e) {
-  e.preventDefault();
+// btnClose.addEventListener('click', function (e) {
+//   e.preventDefault();
 
-  if (
-    inputCloseUsername.value === currentAccount.username &&
-    +inputClosePin.value === currentAccount.pin
-  ) {
-    const index = accounts.findIndex(
-      acc => acc.username === currentAccount.username
-    );
-    console.log(index);
-    // .indexOf(23)
+//   if (
+//     inputCloseUsername.value === currentAccount.username &&
+//     +inputClosePin.value === currentAccount.pin
+//   ) {
+//     const index = accounts.findIndex(
+//       acc => acc.username === currentAccount.username
+//     );
+//     console.log(index);
+//     // .indexOf(23)
 
-    // Delete account
-    accounts.splice(index, 1);
+//     // Delete account
+//     accounts.splice(index, 1);
 
-    // Hide UI
-    containerApp.style.opacity = 0;
-  }
+//     // Hide UI
+//     containerApp.style.opacity = 0;
+//   }
 
-  inputCloseUsername.value = inputClosePin.value = '';
-});
+//   inputCloseUsername.value = inputClosePin.value = '';
+// });
 
-let sorted = false;
-btnSort.addEventListener('click', function (e) {
-  e.preventDefault();
-  displayMovements(currentAccount.movements, !sorted);
-  sorted = !sorted;
-});
+// let sorted = false;
+// btnSort.addEventListener('click', function (e) {
+//   e.preventDefault();
+//   displayMovements(currentAccount.movements, !sorted);
+//   sorted = !sorted;
+// });
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
